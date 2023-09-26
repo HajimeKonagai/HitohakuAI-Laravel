@@ -1,0 +1,418 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '_common';
+@import '_layout';
+
+
+
+div.render-annotation
+{
+	@apply overflow-auto p-0 relative w-full;
+	div.select-text,
+	div.annotation-text
+	{
+		@apply p-4 w-full overflow-hidden relative top-0 left-0 leading-10;
+		white-space: pre-wrap;
+	}
+	div.select-text
+	{
+		position: relative;
+		text-shadow: 1px 0px 3px #fff;
+	}
+	div.annotation-text
+	{
+		position: absolute;
+		span.annotation-text
+		{
+			@apply text-red-400 shadow-inner pt-4 relative bg-red-500 text-center;
+			&.code       { @apply bg-stone-400 }
+			&.en_family  { @apply bg-red-400 }
+			&.ja_family  { @apply bg-orange-400 }
+			&.en_name    { @apply bg-amber-400 }
+			&.ja_name    { @apply bg-yellow-400 }
+			&.ja_pref    { @apply bg-lime-400 }
+			&.ja_city    { @apply bg-green-400 }
+			&.ja_addr    { @apply bg-emerald-400 }
+			&.en_pref    { @apply bg-teal-400 }
+			&.en_city    { @apply bg-cyan-400 }
+			&.en_addr    { @apply bg-sky-400 }
+			&.date       { @apply bg-blue-400 }
+			&.person     { @apply bg-indigo-400 }
+			&.number     { @apply bg-violet-400 }
+			&.country    { @apply bg-purple-400 }
+			&.lat        { @apply bg-fuchsia-400 }
+			&.lng        { @apply bg-pink-400 }
+			&.alt        { @apply bg-rose-400 }
+			&.memo       { @apply bg-slate-400 }
+
+			span.annotation-label
+			{
+				@apply absolute top-0 left-0 right-0 ml-auto mr-auto text-xs text-white;
+				&.code       { @apply bg-stone-600 }
+				&.en_family  { @apply bg-red-600 }
+				&.ja_family  { @apply bg-orange-600 }
+				&.en_name    { @apply bg-amber-600 }
+				&.ja_name    { @apply bg-yellow-600 }
+				&.ja_pref    { @apply bg-lime-600 }
+				&.ja_city    { @apply bg-green-600 }
+				&.ja_addr    { @apply bg-emerald-600 }
+				&.en_pref    { @apply bg-teal-600 }
+				&.en_city    { @apply bg-cyan-600 }
+				&.en_addr    { @apply bg-sky-600 }
+				&.date       { @apply bg-blue-600 }
+				&.person     { @apply bg-indigo-600 }
+				&.number     { @apply bg-violet-600 }
+				&.country    { @apply bg-purple-600 }
+				&.lat        { @apply bg-fuchsia-600 }
+				&.lng        { @apply bg-pink-600 }
+				&.alt        { @apply bg-rose-600 }
+				&.memo       { @apply bg-slate-600 }
+				}
+		}
+	}
+}
+
+div.render-image
+{
+    @apply relative;
+    div.image
+    {
+        position: relative;
+        overflow: hidden;
+        > img
+        {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            margin: auto;
+        }
+
+        .lens_img_box {
+            position: absolute;
+            opacity: 0;
+            overflow: hidden;
+            pointer-events: none;
+            border-radius: 100%;
+            border: solid 5px #ffffff;
+            z-index: 3;
+            background-color: #FFF;
+
+            img
+            {
+                position: absolute;
+                transform-origin: top left;
+
+            }
+        }
+    }
+}
+
+div.index
+{
+	section
+	{
+		div.content
+		{
+			div.table
+			{
+				@apply w-full;
+			}
+		}
+	}
+}
+
+div.data.index
+{
+	section.search
+	{
+		div.content
+		{
+			@apply flex flex-wrap;
+			> dl,
+			> div
+			{
+				@apply w-1/2 mb-6; 
+				dt
+				{
+					@apply font-bold text-sm;
+				}
+				&.text,
+				&.date
+				{
+					@apply pr-4;
+				}
+				&.label,
+				&.reset
+				{
+					@apply pl-4;
+				}
+
+				&.text
+				{
+					dd
+					{
+						input
+						{
+							@apply w-full;
+						}
+					}
+				}
+				&.label
+				{
+					dd
+					{
+						@apply flex justify-between;
+						select
+						{
+							width: 8rem;
+						}
+						input
+						{
+							width: calc(100% - 8.4rem);
+						}
+					}
+				}
+
+				&.reset
+				{
+					@apply flex justify-end items-end;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+div.data.editor,
+div.data.bulk
+{
+	section.control
+	{
+		.button
+		{
+			@apply mr-2;
+		}
+	}
+
+    div.form
+    {
+        @apply flex p-4 mb-8 border relative;
+
+        div.cover
+        {
+            @apply bg-black/50 flex justify-center items-start pt-48 text-white font-bold text-2xl absolute w-full h-full z-10 top-0 left-0;
+        }
+
+        div.render-image
+        {
+			@apply border bg-slate-100;
+        }
+
+		div.render-annotation
+		{
+			@apply overflow-auto border bg-white mt-2;
+		}
+
+		div.form-groups
+		{
+            div.form-group
+            {
+				@apply border rounded p-2 mb-2;
+				h2
+				{
+					@apply font-bold border-b text-lg mb-1;
+				}
+				div.input
+				{
+					@apply flex w-full flex-wrap justify-start;
+					dl
+					{
+						@apply overflow-hidden text-sm pr-2;
+						dt
+						{
+						}
+						dd
+						{
+							@apply flex flex-col w-full mb-2;
+							input[type=text],
+							textarea,
+							input[type=date]
+							{
+								@apply text-sm w-full;
+							}
+
+							div.original-text
+							{
+								span
+								{
+									@apply border-2 rounded mr-2 relative inline-block p-1 my-1 text-xs bg-white;
+									button.replace
+									{
+										@apply mr-8 text-left;
+									}
+									button.push
+									{
+										@apply border rounded inline-block absolute top-1 right-1 w-4 h-4;
+									}
+								}
+							}
+						}
+					}
+				}
+				div.suggestion
+				{
+					@apply border p-3;
+					button
+					{
+						@apply border-2 rounded mr-2 relative inline-block p-1 my-1 text-xs bg-white;
+					}
+				}
+            }
+        }
+    }
+}
+
+
+div.data.editor
+{
+    div.form
+    {
+		div.render
+		{
+			@apply w-1/3;
+			div.render-image
+			{
+				@apply w-full;
+
+
+				div.image
+				{
+					max-height: 100%;
+					height: 450px;
+					max-width: 100%
+				}
+
+			}
+			div.render-annotation
+			{
+				@apply text-xs w-full;
+			}
+		}
+
+		div.form-groups
+		{
+			@apply w-8/12 pl-3;
+            div.form-group
+            {
+				@apply mb-8;
+				h2
+				{
+				}
+				div.input
+				{
+					dl
+					{
+						@apply w-full;
+					}
+				}
+			}
+		}
+    }
+}
+div.data.bulk
+{
+    div.form
+    {
+		div.render
+		{
+			@apply w-4/12;
+			div.render-image
+			{
+				@apply w-full;
+
+				div.image
+				{
+					max-height: 100%;
+					height: 450px;
+					max-width: 100%
+				}
+
+			}
+			div.render-annotation
+			{
+				@apply text-xs w-full;
+				height: 400px;
+			}
+		}
+
+		div.form-groups
+		{
+			@apply w-8/12 pl-3;
+            div.form-group
+            {
+				h2
+				{
+				}
+				div.input
+				{
+					dl
+					{
+						@apply w-1/4;
+					}
+				}
+			}
+            div.form-group.memo
+			{
+				div.input
+				{
+					dl
+					{
+						@apply w-full
+					}
+				}
+			}
+		}
+    }
+}
+
+
+div.user.create
+{
+	section
+	{
+		@apply max-w-7xl mx-auto;
+	}
+}
+
+div.annotation.edit
+{
+	section.help
+	{
+		dl
+		{
+			dt
+			{
+				@apply font-bold;
+				&:before
+				{
+					content: '■';
+				}
+			}
+		}
+
+		ul
+		{
+			@apply mt-4 pl-4;
+			li
+			{
+				@apply list-disc mb-2;
+			}
+		}
+
+	}
+}

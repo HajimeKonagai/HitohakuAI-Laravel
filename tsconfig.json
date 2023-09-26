@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "jsx": "react-jsx",
+    "module": "es2020",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["resources/ts/*"]
+    },
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+
+
+
+    "allowSyntheticDefaultImports": true,
+    "lib": ["es2020","dom"],
+    "experimentalDecorators": true,
+    "incremental": true,
+    "strictNullChecks": false,
+    "strictFunctionTypes": false,
+    "strictBindCallApply": false,
+    "strictPropertyInitialization": false,
+    "noImplicitThis": false
+
+
+  },
+  "include": [
+      "resources/ts/**/*"
+    ],
+  "exclude": ["node_modules", "public"]
+}

@@ -1,0 +1,101 @@
+
+input[type=text],
+input[type=date],
+textarea,
+.input textarea,
+select
+{
+    @apply border-gray-300 py-2 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm;
+
+    &::placeholder
+    {
+        @apply text-slate-300;
+    }
+}
+
+.button
+{
+    @apply rounded-md px-4 py-2 font-bold bg-indigo-500 text-white shadow-sm border border-transparent;
+    &.primary
+    {
+        @apply text-base bg-cyan-500;
+    }
+    &.secondary
+    {
+        @apply text-base bg-emerald-500;
+    }
+    &.tertiary
+    {
+        @apply text-base bg-fuchsia-500;
+    }
+    &:disabled,
+    &.disabled
+    {
+        @apply bg-gray-200;
+    }
+    &.delete
+    {
+        @apply text-base bg-rose-500 hover:bg-rose-600;
+    }
+    &.small
+    {
+        @apply text-sm px-2 py-1;
+    }
+}
+
+table
+{
+    @apply w-full;
+    thead,
+    tfoot
+    {
+        @apply bg-slate-100 text-sm text-slate-600;
+    }
+    tr
+    {
+        @apply border-y;
+    }
+
+    th, td
+    {
+        @apply px-4 py-3;
+    }
+}
+
+
+.pagination
+{
+	@apply my-2 flex justify-between w-full;
+    ul
+    {
+        li
+        {
+            @apply leading-none inline-block mr-1 overflow-hidden;
+
+            a,
+            > span
+            {
+                @apply border border-slate-600 rounded block px-3 py-2;
+            }
+
+            &.active a
+            {
+                @apply bg-slate-600 text-white;
+            }
+            a:hover
+            {
+                @apply bg-slate-600 text-white;
+            }
+            &.disabled a,
+            &.disabled span
+            {
+                @apply text-slate-200 border-slate-200;
+            }
+
+        }
+    }
+    span.total
+    {
+        @apply font-bold text-slate-600 text-lg;
+    }
+}
